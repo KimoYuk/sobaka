@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="js" href="">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>Header</header>
+    <main id="thems">
+
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quae commodi pariatur nulla optio minus a
+                doloremque vel ipsam aspernatur placeat ea, illo veniam quidem dolorem laboriosam reprehenderit
+                provident
+                quas.
+                Provident alias temporibus optio repellat debitis aliquid, libero, recusandae ad ullam consequuntur
+                accusantium quia quos beatae, illum corporis accusamus obcaecati ipsum? Rerum voluptas esse eveniet
+                tempore
+                optio labore, ab quae.
+                Omnis nisi quas, dolore incidunt placeat expedita dicta tenetur quaerat quam doloribus neque dolorum
+                quia
+                voluptatum obcaecati culpa accusamus dolorem totam. Ab totam iure nostrum officia quia modi ullam
+                laudantium.
+                Ut officiis explicabo delectus doloribus quaerat eius dolorum autem animi! Illum pariatur esse aliquid!
+                Debitis laboriosam atque quidem officiis! Sapiente doloribus ipsam aliquid possimus blanditiis
+                reprehenderit
+                veritatis, sint vitae amet.</p>
+        </article>
+        <div class="otzyv_box">
+            <div class="add_otzyv">
+                <textarea type="text" id="inputMessage"></textarea>
+                <button class="button">Добавить</button>
+            </div>
+            <div class="written_otzyv" id="allotzyvs">
+
+                <div class="otzyv otzyv1" id="otzyv1"></div>
+            </div>
+        </div>
+        <div id="dd">ddd</div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            let inputMessage = document.getElementById('inputMessage')
+            let button = document.querySelector('button')
+            let otzyv1 = document.getElementById('otzyv1')
+            let otzyvs = document.getElementById('otzyvs')
+
+            let heightb = 40
+            let heightt = 2100
+            button.addEventListener('click', function () {
+                axios.get('/hello', {
+                    params: {
+                        message: inputMessage.value
+                    }
+                }).then(function (res) {
+                    console.log(res)
+                })
+            })
+
+            function add_otzyv() {
+                console.log('iam')
+                // heightt+=110
+                // them.style.height = heightt + 'px'
+                axios.get('/add').then(function (res) {
+                    let otzyvs = res.data
+                    for (otzyv of otzyvs) {
+                        console.log(otzyv)
+                        adddiv(otzyv)
+                    }
+                })
+            }
+            let ord = 1
+            function adddiv(otzyv) {
+                var newDiv = document.createElement("textarea")
+                newDiv.classList.add('otzyv')
+                newDiv.innerHTML = otzyv
+                newDiv.setAttribute('readonly', 'readonly') 
+                let element = document.getElementById('otzyv' + ord)
+                ord++
+                newDiv.id = 'otzyv' + ord
+                allotzyvs.insertBefore(newDiv, element)
+                
+
+            }
+            add_otzyv()
+            let ws = new WebSocket("ws://localhost:3001")
+            ws.onmessage = function (e) {
+                console.log(e.data)
+                let otzyv = JSON.parse(e.data)
+                adddiv(otzyv)
+            }
+        </script>
+    </main>
+</body>
+
+</html>

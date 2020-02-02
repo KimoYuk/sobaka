@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Josefin+Sans|Nova+Mono|Quicksand&display=swap');
+
+header {
+    height: 70px;
+    width: 100%;
+    background-color: rgba(255, 157, 0, 0.9);
+    position: fixed;
+    top: 0;
+}
+
+main {
+    background-color: rgb(255, 243, 0);
+
+    height: auto;
+    box-sizing: border-box;
+
+}
+
+article {
+    width: 70%;
+    background-color: rgb(255, 231, 0);
+    margin: auto;
+    height: 1000px;
+    padding: 20px;
+    font-family: 'Nova Mono', monospace;
+    box-sizing: border-box;
+    padding-top: 90px;
+}
+
+body {
+    margin: auto;
+
+}
+
+.t-1 {
+    position: sticky;
+    top: 90px;
+
+}
+
+.t-2 {
+    margin-left: 80px;
+    position: sticky;
+}
+
+.t-3 {
+    margin-left: 30px;
+}
+
+.otzyv_box {
+    width: 70%;
+    background-color: rgb(255, 231, 0);
+    margin: auto;
+    font-family: 'Anton', sans-serif;
+    box-sizing: border-box;
+    height: auto;
+    padding: 20px; 
+    padding-top: 50px;
+    margin-top: 50px;
+
+}
+
+.add_otzyv {
+    width: 80%;
+    height: 150px;
+    background-color: #fff300;
+    font-family: 'Josefin Sans', sans-serif;
+    margin: auto;
+}
+
+.written_otzyv {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgb(255, 243, 0);
+
+}
+
+.otzyv {
+    width: 90%;
+    margin-left: 5%;
+    resize: none;
+    background-color: #fff;
+    height: 100px;
+    font-family: 'Anonymous Pro', monospace;
+    margin-top: 6px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000; 
+}
+
+.otzyv1 {
+    opacity: 0;
+    position: absolute;
+}
+
+.add_otzyv>textarea {
+    width: 90%;
+    height: 50%;
+    resize: none;
+    margin-left: 5%;
+    margin-top: 2%;
+    box-sizing: border-box;
+    font-family: 'Anonymous Pro', monospace;
+    padding-left: 10px;
+}
